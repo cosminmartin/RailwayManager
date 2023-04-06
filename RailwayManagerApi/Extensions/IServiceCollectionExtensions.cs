@@ -1,7 +1,4 @@
-﻿using Libraries.Infrastructure.Configurations;
-using Microsoft.OpenApi.Models;
-
-namespace RailwayManagerApi.Extensions
+﻿namespace RailwayManagerApi.Extensions
 {
     public static class IServiceCollectionExtensions
     {

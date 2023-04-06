@@ -1,7 +1,4 @@
-﻿using Domain.Contracts.Users.Queries;
-using Domain.Contracts.Users.Queries.GetById;
-
-namespace RailwayManagerApi.Controllers
+﻿namespace RailwayManagerApi.Controllers
 {
     [ApiController]
     [Route("users")]
