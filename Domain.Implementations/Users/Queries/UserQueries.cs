@@ -1,4 +1,6 @@
-﻿namespace Domain.Implementations.Users.Queries
+﻿using Domain.Contracts.Dtos.User;
+
+namespace Domain.Implementations.Users.Queries
 {
     public class UserQueries : IUserQueries
     {

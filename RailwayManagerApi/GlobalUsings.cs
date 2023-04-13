@@ -1,5 +1,8 @@
 ﻿global using DataAccess.Bootstrap;
 global using Domain.Bootstrap;
+global using Domain.Contracts.Dtos.User;
+global using Domain.Contracts.Users.Commands;
+global using Domain.Contracts.Users.Commands.CreateUser;
 global using Domain.Contracts.Users.Queries;
 global using Domain.Contracts.Users.Queries.GetById;
 global using Libraries.Infrastructure.Configurations;

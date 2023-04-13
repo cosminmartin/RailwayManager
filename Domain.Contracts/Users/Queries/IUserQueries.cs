@@ -1,4 +1,6 @@
-﻿namespace Domain.Contracts.Users.Queries
+﻿using Domain.Contracts.Dtos.User;
+
+namespace Domain.Contracts.Users.Queries
 {
     public interface IUserQueries
     {

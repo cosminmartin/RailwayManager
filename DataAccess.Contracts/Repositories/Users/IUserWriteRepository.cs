@@ -2,8 +2,8 @@
 
 namespace DataAccess.Contracts.Repositories.Users
 {
-    public interface IUserReadRepository
+    public interface IUserWriteRepository
     {
-        Task<User> GetUserAsync(GetUserByIdContract contract);
+        Task<User> CreateUserAsync(CreateUserContract contract);
     }
 }

@@ -5,12 +5,12 @@
         public static UserModel ToModel(this User entity) => new()
         {
             Id = entity.Id,
-            FirstName = entity.FirstName,
-            LastName = entity.LastName,
-            PhoneNumber = entity.PhoneNumber,
             Email = entity.Email,
+            FirstName = entity.FirstName,
+            LastName = entity.LastName,        
             PasswordHash = entity.PasswordHash,
-            PasswordSalt = entity.PasswordSalt
+            PasswordSalt = entity.PasswordSalt,
+            PhoneNumber = entity.PhoneNumber
         };
 
         public static IEnumerable<UserModel> ToModel(this IReadOnlyCollection<User> entities) =>

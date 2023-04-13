@@ -1,8 +1,8 @@
- IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'RailwayManager')
+ IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'RailwayManagerDb')
   BEGIN
-    CREATE DATABASE [RailwayManager]
+    CREATE DATABASE [RailwayManagerDb]
 
     END
     GO
-       USE [RailwayManager]
+       USE [RailwayManagerDb]
     GO

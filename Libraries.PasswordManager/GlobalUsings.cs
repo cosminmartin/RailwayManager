@@ -1,0 +1,9 @@
+﻿global using Libraries.PasswordManager.Constants;
+global using Libraries.PasswordManager.Managers.Password;
+global using Libraries.PasswordManager.Managers.Salt;
+global using Libraries.PasswordManager.Models;
+global using Libraries.PasswordManager.Validators;
+global using Microsoft.Extensions.DependencyInjection;
+global using System.Security.Cryptography;
+global using System.Text;
+global using System.Text.RegularExpressions;

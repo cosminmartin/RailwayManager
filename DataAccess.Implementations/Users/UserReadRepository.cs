@@ -1,9 +1,4 @@
-﻿using Dapper;
-using DataAccess.Contracts;
-using DataAccess.Contracts.Contracts;
-using DataAccess.Contracts.Entities;
-using DataAccess.Contracts.Repositories;
-using DataAccess.Contracts.Repositories.Users;
+﻿using DataAccess.Contracts.Contracts.User;
 
 namespace DataAccess.Implementations.Users
 {

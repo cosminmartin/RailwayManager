@@ -1,4 +1,6 @@
-﻿namespace Domain.Contracts.Users.Queries.GetById
+﻿using Domain.Contracts.Dtos.User;
+
+namespace Domain.Contracts.Users.Queries.GetById
 {
     public interface IGetUserByIdQueryContext
     {

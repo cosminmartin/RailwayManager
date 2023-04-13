@@ -1,7 +1,12 @@
-﻿global using Domain.Contracts.Users.Queries;
+﻿global using Domain.Contracts.Users.Commands;
+global using Domain.Contracts.Users.Commands.CreateUser;
+global using Domain.Contracts.Users.Queries;
 global using Domain.Contracts.Users.Queries.GetById;
 global using Domain.Implementations.Users.Behaviour.Validators;
+global using Domain.Implementations.Users.Commands;
+global using Domain.Implementations.Users.Commands.CreateUser;
 global using Domain.Implementations.Users.Queries;
 global using Domain.Implementations.Users.Queries.GetById;
 global using FluentValidation;
+global using Libraries.PasswordManager.Extensions;
 global using Microsoft.Extensions.DependencyInjection;

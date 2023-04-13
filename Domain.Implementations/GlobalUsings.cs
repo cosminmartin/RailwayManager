@@ -1,11 +1,14 @@
-﻿global using DataAccess.Contracts.Contracts;
+﻿global using DataAccess.Contracts.Contracts.User;
 global using DataAccess.Contracts.Entities;
 global using DataAccess.Contracts.Repositories.Users;
-global using Domain.Contracts.Dtos;
+global using Domain.Contracts.Dtos.User;
+global using Domain.Contracts.Users.Commands;
+global using Domain.Contracts.Users.Commands.CreateUser;
 global using Domain.Contracts.Users.Queries;
 global using Domain.Contracts.Users.Queries.GetById;
 global using Domain.Implementations.Users.Behaviour.Mappings;
 global using Domain.Implementations.Users.Behaviour.Models;
 global using FluentValidation;
 global using Libraries.Exceptions;
-
+global using Libraries.PasswordManager.Managers.Password;
+global using Libraries.Shared.Constants;

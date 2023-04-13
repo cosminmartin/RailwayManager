@@ -14,6 +14,7 @@ namespace DataAccess.Bootstrap
         private static void RegisterRepositories(this IServiceCollection services)
         {
             services.AddTransient<IUserReadRepository, UserReadRepository>();
+            services.AddTransient<IUserWriteRepository, UserWriteRepository>();
         }
     }
 }

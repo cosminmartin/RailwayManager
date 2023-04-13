@@ -1,4 +1,4 @@
-﻿namespace DataAccess.Contracts.Contracts
+﻿namespace DataAccess.Contracts.Contracts.User
 {
     public class GetUserByIdContract
     {
