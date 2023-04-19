@@ -1,7 +1,4 @@
-﻿using DataAccess.Contracts.Repositories.Users;
-using DataAccess.Implementations.Users;
-
-namespace DataAccess.Bootstrap
+﻿namespace DataAccess.Bootstrap
 {
     public static class DIBootstrap
     {
@@ -15,6 +12,8 @@ namespace DataAccess.Bootstrap
         {
             services.AddTransient<IUserReadRepository, UserReadRepository>();
             services.AddTransient<IUserWriteRepository, UserWriteRepository>();
+            services.AddTransient<ITrainReadRepository, TrainReadRepository>();
+            services.AddTransient<ITrainWriteRepository, TrainWriteRepository>();
         }
     }
 }

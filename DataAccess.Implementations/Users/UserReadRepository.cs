@@ -1,6 +1,4 @@
-﻿using DataAccess.Contracts.Contracts.User;
-
-namespace DataAccess.Implementations.Users
+﻿namespace DataAccess.Implementations.Users
 {
     public class UserReadRepository : RepositoryBase, IUserReadRepository
     {

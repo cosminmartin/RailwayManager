@@ -1,6 +1,4 @@
-﻿using Domain.Contracts.Dtos.User;
-
-namespace Domain.Implementations.Users.Behaviour.Mappings
+﻿namespace Domain.Implementations.Users.Behaviour.Mappings
 {
     internal static class ToDtoExtensions
     {
