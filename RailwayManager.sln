@@ -29,9 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libraries.Exceptions", "Lib
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libraries.Infrastructure", "Libraries.Infrastructure\Libraries.Infrastructure.csproj", "{36BB8D32-C8CC-4E67-9E1E-7C0AD56E4BE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libraries.Shared", "Libraries.Shared\Libraries.Shared.csproj", "{FA514FCE-6999-47AA-ABA9-E33BEA04880B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libraries.Shared", "Libraries.Shared\Libraries.Shared.csproj", "{FA514FCE-6999-47AA-ABA9-E33BEA04880B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libraries.PasswordManager", "Libraries.PasswordManager\Libraries.PasswordManager.csproj", "{6EE995CE-909C-4899-AA4E-35C6EF2CCF5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libraries.PasswordManager", "Libraries.PasswordManager\Libraries.PasswordManager.csproj", "{6EE995CE-909C-4899-AA4E-35C6EF2CCF5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

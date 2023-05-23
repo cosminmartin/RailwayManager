@@ -1,6 +1,6 @@
 ﻿namespace Domain.Implementations.Trains.Behaviour.Mappings
 {
-    internal static class ToDoExtensions
+    internal static class ToDtoExtensions
     {
         public static TrainDto ToDto(this TrainModel model) => new()
         {

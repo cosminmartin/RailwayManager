@@ -13,7 +13,8 @@
             services.RegisterDomainDI();
         }
 
-        internal static void RegisterSwagger(this IServiceCollection services,
+        internal static void Register
+            (this IServiceCollection services,
             IConfiguration configuration)
         {
             services.AddSwaggerGen(c =>

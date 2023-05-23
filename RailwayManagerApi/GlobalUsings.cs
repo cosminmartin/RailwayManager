@@ -2,6 +2,8 @@
 global using Domain.Bootstrap;
 global using Domain.Contracts.Dtos.Train;
 global using Domain.Contracts.Dtos.User;
+global using Domain.Contracts.Tickets;
+global using Domain.Contracts.Tickets.Queries.GetById;
 global using Domain.Contracts.Trains.Commands;
 global using Domain.Contracts.Trains.Commands.CreateTrain;
 global using Domain.Contracts.Trains.Queries;
@@ -13,3 +15,4 @@ global using Domain.Contracts.Users.Queries.GetById;
 global using Libraries.Infrastructure.Configurations;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.OpenApi.Models;
+global using RailwayManagerApi.Extensions;
