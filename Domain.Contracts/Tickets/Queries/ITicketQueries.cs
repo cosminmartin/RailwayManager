@@ -1,4 +1,4 @@
-﻿namespace Domain.Contracts.Tickets
+﻿namespace Domain.Contracts.Tickets.Queries
 {
     public interface ITicketQueries
     {

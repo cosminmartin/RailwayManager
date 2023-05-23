@@ -1,9 +1,9 @@
 ﻿global using Domain.Contracts.Dtos.Ticket;
 global using Domain.Contracts.Dtos.Train;
 global using Domain.Contracts.Dtos.User;
+global using Domain.Contracts.Tickets.Commands.CreateTicket;
 global using Domain.Contracts.Tickets.Queries.GetById;
 global using Domain.Contracts.Trains.Commands.CreateTrain;
 global using Domain.Contracts.Trains.Queries.GetById;
 global using Domain.Contracts.Users.Commands.CreateUser;
 global using Domain.Contracts.Users.Queries.GetById;
-

@@ -15,6 +15,7 @@
             services.AddTransient<ITrainReadRepository, TrainReadRepository>();
             services.AddTransient<ITrainWriteRepository, TrainWriteRepository>();
             services.AddTransient<ITicketReadRepository, TicketReadRepository>();
+            services.AddTransient<ITicketWriteRepository, TicketWriteRepository>();
         }
     }
 }

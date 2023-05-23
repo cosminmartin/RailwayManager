@@ -12,12 +12,14 @@
             services.AddTransient<ITrainCommands, TrainCommands>();
             services.AddTransient<ITrainQueries, TrainQueries>();
             services.AddTransient<ITicketQueries, TicketQueries>();
+            services.AddTransient<ITicketCommands, TicketCommands>();
             services.RegisterPasswordManagerDI();
         }
         public static void RegisterCommandContexts(this IServiceCollection services)
         {
             services.AddTransient<ICreateUserCommandContext, CreateUserCommandContext>();
             services.AddTransient<ICreateTrainCommandContext, CreateTrainCommandContext>();
+            services.AddTransient<ICreateTicketCommandContext, CreateTicketCommandContext>();
         }
         public static void RegisterQueriesContexts(this IServiceCollection services)
         {
@@ -33,6 +35,7 @@
             services.AddScoped<IValidator<CreateTrainCommand>, CreateTrainCommandValidator>();
             services.AddScoped<IValidator<GetTrainByIdQuery>, GetTrainByIdQueryValidator>();
             services.AddScoped<IValidator<GetTicketByIdQuery>, GetTicketByIdQueryValidator>();
+            services.AddScoped<IValidator<CreateTicketCommand>, CreateTicketCommandValidator>();
         }
     }
 }

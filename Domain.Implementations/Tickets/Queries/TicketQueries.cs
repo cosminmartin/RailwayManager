@@ -1,4 +1,6 @@
-﻿namespace Domain.Implementations.Tickets.Queries
+﻿using Domain.Contracts.Tickets.Queries;
+
+namespace Domain.Implementations.Tickets.Queries
 {
     public class TicketQueries : ITicketQueries
     {

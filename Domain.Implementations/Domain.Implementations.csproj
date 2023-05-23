@@ -19,8 +19,4 @@
     <ProjectReference Include="..\Libraries.Shared\Libraries.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Tickets\Commands\" />
-  </ItemGroup>
-
 </Project>

@@ -1,8 +1,11 @@
 ﻿global using DataAccess.Bootstrap;
 global using Domain.Bootstrap;
+global using Domain.Contracts.Dtos.Ticket;
 global using Domain.Contracts.Dtos.Train;
 global using Domain.Contracts.Dtos.User;
-global using Domain.Contracts.Tickets;
+global using Domain.Contracts.Tickets.Commands;
+global using Domain.Contracts.Tickets.Commands.CreateTicket;
+global using Domain.Contracts.Tickets.Queries;
 global using Domain.Contracts.Tickets.Queries.GetById;
 global using Domain.Contracts.Trains.Commands;
 global using Domain.Contracts.Trains.Commands.CreateTrain;
