@@ -14,7 +14,22 @@
             Status = model.Status
         };
 
+        public static EditTrainDto ToDto(this TrainModel model, Guid Id) => new()
+        {
+            Id = model.Id,
+            Name = model.Name,
+            DepartureStation = model.DepartureStation,
+            ArrivalStation = model.ArrivalStation,
+            DepartureDate = model.DepartureDate,
+            ArrivalDate = model.ArrivalDate,
+            Duration = model.Duration,
+            Status = model.Status
+        };
+
+        public static IEnumerable<TrainDto> ToDto(this IEnumerable<TrainModel> models) =>
+            models.Select(m =>m.ToDto());
         public static IEnumerable<TrainDto> ToDto(this IReadOnlyCollection<TrainModel> models) =>
             models.Select(m => m.ToDto());
+
     }
 }

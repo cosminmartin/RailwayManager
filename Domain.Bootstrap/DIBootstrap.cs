@@ -19,6 +19,8 @@
         {
             services.AddTransient<ICreateUserCommandContext, CreateUserCommandContext>();
             services.AddTransient<ICreateTrainCommandContext, CreateTrainCommandContext>();
+            services.AddTransient<IEditTrainCommandContext, EditTrainCommandContext>();
+            services.AddTransient<IDeleteTrainCommandContext, DeleteTrainCommandContext>();
             services.AddTransient<ICreateTicketCommandContext, CreateTicketCommandContext>();
         }
         public static void RegisterQueriesContexts(this IServiceCollection services)
@@ -33,6 +35,8 @@
             services.AddScoped<IValidator<CreateUserCommand>, CreateUserCommandValidator>();
             services.AddScoped<IValidator<GetUserByIdQuery>, GetUserByIdQueryValidator>();
             services.AddScoped<IValidator<CreateTrainCommand>, CreateTrainCommandValidator>();
+            services.AddScoped<IValidator<EditTrainCommand>, EditTrainCommandValidator>();
+            services.AddScoped<IValidator<DeleteTrainCommand>, DeleteTrainCommandValidator>();
             services.AddScoped<IValidator<GetTrainByIdQuery>, GetTrainByIdQueryValidator>();
             services.AddScoped<IValidator<GetTicketByIdQuery>, GetTicketByIdQueryValidator>();
             services.AddScoped<IValidator<CreateTicketCommand>, CreateTicketCommandValidator>();

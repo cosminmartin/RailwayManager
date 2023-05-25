@@ -14,6 +14,9 @@
             Status = entity.Status
         };
 
+        public static IEnumerable<TrainModel> ToModel(this IEnumerable<Train> entities) =>
+            entities.Select(e => e.ToModel());
+
         public static IEnumerable<TrainModel> ToModel(this IReadOnlyCollection<Train> entities) =>
             entities.Select(e => e.ToModel());
     }

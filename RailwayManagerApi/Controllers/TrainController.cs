@@ -23,5 +23,17 @@
         {
             return Ok(await commands.CreateTrainAsync(new CreateTrainCommand(train.Name, train.DepartureStation, train.ArrivalStation, train.DepartureDate, train.ArrivalDate, train.Duration, train.Status)));
         }
+
+        [HttpPut("{trainId:guid}")]
+        public async Task<IActionResult> EditTrain([FromBody] EditTrainDto train)
+        {
+            return Ok(await commands.EditTrainAsync(new EditTrainCommand(train.Id, train.Name, train.DepartureStation, train.ArrivalStation, train.DepartureDate, train.ArrivalDate, train.Duration, train.Status)));
+        }
+
+        [HttpDelete("{trainId:guid}")]
+        public async Task DeleteTrain([FromRoute] Guid trainId)
+        {
+            await commands.DeleteTrainAsync(new DeleteTrainCommand(trainId));
+        }
     }
 }

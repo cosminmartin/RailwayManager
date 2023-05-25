@@ -9,6 +9,8 @@ global using Domain.Contracts.Tickets.Queries;
 global using Domain.Contracts.Tickets.Queries.GetById;
 global using Domain.Contracts.Trains.Commands;
 global using Domain.Contracts.Trains.Commands.CreateTrain;
+global using Domain.Contracts.Trains.Commands.DeleteTrain;
+global using Domain.Contracts.Trains.Commands.EditTrain;
 global using Domain.Contracts.Trains.Queries;
 global using Domain.Contracts.Trains.Queries.GetById;
 global using Domain.Contracts.Users.Commands;
