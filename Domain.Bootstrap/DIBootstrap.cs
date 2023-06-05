@@ -27,6 +27,7 @@
         {
             services.AddTransient<IGetUserByIdQueryContext, GetUserByIdQueryContext>();
             services.AddTransient<IGetTrainByIdQueryContext, GetTrainByIdQueryContext>();
+            services.AddTransient<IGetAllTrainsQueryContext, GetAllTrainsQueryContext>();
             services.AddTransient<IGetTicketByIdQueryContext, GetTicketByIdQueryContext>();
         }
 
@@ -38,6 +39,7 @@
             services.AddScoped<IValidator<EditTrainCommand>, EditTrainCommandValidator>();
             services.AddScoped<IValidator<DeleteTrainCommand>, DeleteTrainCommandValidator>();
             services.AddScoped<IValidator<GetTrainByIdQuery>, GetTrainByIdQueryValidator>();
+            services.AddScoped<IValidator<GetAllTrainsQuery>, GetAllTrainsQueryValidator>();
             services.AddScoped<IValidator<GetTicketByIdQuery>, GetTicketByIdQueryValidator>();
             services.AddScoped<IValidator<CreateTicketCommand>, CreateTicketCommandValidator>();
         }

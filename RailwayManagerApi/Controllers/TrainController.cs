@@ -18,6 +18,13 @@
             return Ok(await queries.GetTrainAsync(new GetTrainByIdQuery(trainId)));
         }
 
+        [HttpGet]
+        [Route("{departureStation}/{arrivalStation}")]
+        public async Task<IActionResult> GetAllTrainsAsync([FromRoute] string departureStation, string arrivalStation)
+        {
+            return Ok(await queries.GetAllTrainsAsync(new GetAllTrainsQuery(departureStation, arrivalStation)));   
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateTrain([FromBody] CreateTrainDto train)
         {

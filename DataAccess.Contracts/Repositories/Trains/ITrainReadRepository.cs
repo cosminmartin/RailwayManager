@@ -3,5 +3,6 @@
     public interface ITrainReadRepository
     {
         Task<Train> GetTrainAsync(GetTrainByIdContract contract);
+        Task<IEnumerable<Train>> GetAllTrainsAsync(GetAllTrainsContract contract);
     }
 }
