@@ -1,0 +1,48 @@
+﻿@page "/trafic"
+@inject HttpClient Http
+
+<h3>Trafic intern</h3>
+
+@if (Trains == null)
+{
+    <p><em>Se încarcă...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Traseu</th>
+                <th>Stația de plecare</th>
+                <th>Stația de sosire</th>
+                <th>Data plecării</th>
+                <th>Data sosirii</th>
+                <th>Durata</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var train in Trains)
+            {
+                <tr>
+                    <td>@train.Name</td>
+                    <td>@train.DepartureStation</td>
+                    <td>@train.ArrivalStation</td>
+                    <td>@train.DepartureDate.ToShortDateString()</td>
+                    <td>@train.ArrivalDate.ToShortDateString()</td>
+                    <td>@train.Duration.ToShortDateString()</td>
+                    <td>@train.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<TrainModel> Trains;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Trains = await Http.GetFromJsonAsync<List<TrainModel>>("api/trains/all/all");
+    }
+}

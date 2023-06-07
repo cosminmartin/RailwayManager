@@ -1,7 +1,7 @@
 ﻿namespace RailwayManagerApi.Controllers
 {
     [ApiController]
-    [Route("trains")]
+    [Route("api/trains")]
     public class TrainController : ControllerBase
     {
         private readonly ITrainQueries queries;

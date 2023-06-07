@@ -27,6 +27,15 @@
             services.RegisterModulesDependencyInjection(Configuration);
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "AllowBlazorOrigin",
+                        builder =>
+                        {
+                            builder.WithOrigins("https://localhost:7000/", "https://localhost:7209/");
+                        }
+                    );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +47,8 @@
             }
 
             app.UseRouting();
+
+            app.UseCors("AllowBlazorOrigin");
 
             app.UseAuthentication();
             app.UseHttpsRedirection();
