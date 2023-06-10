@@ -9,5 +9,6 @@ global using Domain.Contracts.Trains.Commands.EditTrain;
 global using Domain.Contracts.Trains.Queries.GetAllTrains;
 global using Domain.Contracts.Trains.Queries.GetById;
 global using Domain.Contracts.Users.Commands.CreateUser;
+global using Domain.Contracts.Users.Commands.LoginUser;
 global using Domain.Contracts.Users.Queries.GetByEmail;
 global using Domain.Contracts.Users.Queries.GetById;

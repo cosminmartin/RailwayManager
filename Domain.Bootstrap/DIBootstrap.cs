@@ -14,11 +14,13 @@
             services.AddTransient<ITicketQueries, TicketQueries>();
             services.AddTransient<ITicketCommands, TicketCommands>();
             services.RegisterPasswordManagerDI();
-        }
+			services.AddTransient<ITokenGenerator, TokenGenerator>();
+		}
         public static void RegisterCommandContexts(this IServiceCollection services)
         {
             services.AddTransient<ICreateUserCommandContext, CreateUserCommandContext>();
-            services.AddTransient<ICreateTrainCommandContext, CreateTrainCommandContext>();
+			services.AddTransient<ILoginUserCommandContext, LoginUserCommandContext>();
+			services.AddTransient<ICreateTrainCommandContext, CreateTrainCommandContext>();
             services.AddTransient<IEditTrainCommandContext, EditTrainCommandContext>();
             services.AddTransient<IDeleteTrainCommandContext, DeleteTrainCommandContext>();
             services.AddTransient<ICreateTicketCommandContext, CreateTicketCommandContext>();
@@ -35,7 +37,8 @@
         public static void RegisterValidators(this IServiceCollection services)
         {
             services.AddScoped<IValidator<CreateUserCommand>, CreateUserCommandValidator>();
-            services.AddScoped<IValidator<GetUserByIdQuery>, GetUserByIdQueryValidator>();
+			services.AddScoped<IValidator<LoginUserCommand>, LoginUserCommandValidator>();
+			services.AddScoped<IValidator<GetUserByIdQuery>, GetUserByIdQueryValidator>();
             services.AddScoped<IValidator<GetUserByEmailQuery>, GetUserByEmailQueryValidator>();
             services.AddScoped<IValidator<CreateTrainCommand>, CreateTrainCommandValidator>();
             services.AddScoped<IValidator<EditTrainCommand>, EditTrainCommandValidator>();

@@ -10,8 +10,16 @@
             LastName = model.LastName,
             PhoneNumber = model.PhoneNumber
         };
-
-        public static IEnumerable<UserDto> ToDto(this IReadOnlyCollection<UserModel> models) =>
+		public static UserTokenDto ToDto(this UserModel model, string token) => new()
+		{
+			Email = model.Email,
+			FirstName = model.FirstName,
+			Id = model.Id,
+			LastName = model.LastName,
+			PhoneNumber = model.PhoneNumber,
+			Token = token
+		};
+		public static IEnumerable<UserDto> ToDto(this IReadOnlyCollection<UserModel> models) =>
             models.Select(m => m.ToDto());
     }
 }

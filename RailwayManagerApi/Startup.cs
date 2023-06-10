@@ -1,4 +1,6 @@
-﻿namespace RailwayManagerApi
+﻿using Libraries.JWTTokenManager;
+
+namespace RailwayManagerApi
 {
     public class Startup
     {
@@ -12,7 +14,8 @@
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+			services.Configure<TokenConfig>(Configuration.GetSection("TokenConfigs"));
+			services.AddControllers();
             services.AddCors(options =>
             {
                 options.AddPolicy(name: "AllowSpecificOrigins",
@@ -25,9 +28,11 @@
                                   });
             });
             services.RegisterModulesDependencyInjection(Configuration);
-            services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
-            services.AddCors(options =>
+			services.RegisterJWTAuthenticationAndAuthorization(Configuration);
+			services.AddEndpointsApiExplorer();
+			//services.AddSwaggerGen();
+			services.RegisterSwagger(Configuration);
+			services.AddCors(options =>
             {
                 options.AddPolicy(name: "AllowBlazorOrigin",
                         builder =>

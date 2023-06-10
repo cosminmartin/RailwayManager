@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libraries.PasswordManager",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RailwayManagerBlazor", "RailwayManagerBlazor\RailwayManagerBlazor.csproj", "{E1F1CBD3-8432-49A0-85F1-59147DDB2791}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libraries.JWTTokenManager", "Libraries.JWTTokenManager\Libraries.JWTTokenManager.csproj", "{464E9B6E-9B36-4F71-A21D-5C5064D524A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{E1F1CBD3-8432-49A0-85F1-59147DDB2791}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1F1CBD3-8432-49A0-85F1-59147DDB2791}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1F1CBD3-8432-49A0-85F1-59147DDB2791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{464E9B6E-9B36-4F71-A21D-5C5064D524A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{464E9B6E-9B36-4F71-A21D-5C5064D524A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{464E9B6E-9B36-4F71-A21D-5C5064D524A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{464E9B6E-9B36-4F71-A21D-5C5064D524A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,6 +115,7 @@ Global
 		{36BB8D32-C8CC-4E67-9E1E-7C0AD56E4BE3} = {13700E31-D53D-4A5D-BC7E-07A3437178E5}
 		{FA514FCE-6999-47AA-ABA9-E33BEA04880B} = {13700E31-D53D-4A5D-BC7E-07A3437178E5}
 		{6EE995CE-909C-4899-AA4E-35C6EF2CCF5E} = {13700E31-D53D-4A5D-BC7E-07A3437178E5}
+		{464E9B6E-9B36-4F71-A21D-5C5064D524A8} = {13700E31-D53D-4A5D-BC7E-07A3437178E5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F0F4F597-DB39-495F-9771-5A079942D651}
