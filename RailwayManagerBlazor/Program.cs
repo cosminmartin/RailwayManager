@@ -4,6 +4,8 @@ using RailwayManagerBlazor;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
+builder.Services.AddSingleton<Utilities.ILocalStorage, Utilities.LocalStorage>();
+
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 

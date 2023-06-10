@@ -1,9 +1,9 @@
-﻿using Domain.Contracts.Dtos.User;
-
-namespace Domain.Contracts.Users.Queries
+﻿namespace Domain.Contracts.Users.Queries
 {
-    public interface IUserQueries
+	public interface IUserQueries
     {
         Task<UserDto> GetUserAsync(GetUserByIdQuery query);
+
+        Task<UserDto> GetUserAsync(GetUserByEmailQuery query);
     }
 }

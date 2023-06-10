@@ -26,6 +26,7 @@
         public static void RegisterQueriesContexts(this IServiceCollection services)
         {
             services.AddTransient<IGetUserByIdQueryContext, GetUserByIdQueryContext>();
+            services.AddTransient<IGetUserByEmailQueryContext, GetUserByEmailQueryContext>();   
             services.AddTransient<IGetTrainByIdQueryContext, GetTrainByIdQueryContext>();
             services.AddTransient<IGetAllTrainsQueryContext, GetAllTrainsQueryContext>();
             services.AddTransient<IGetTicketByIdQueryContext, GetTicketByIdQueryContext>();
@@ -35,6 +36,7 @@
         {
             services.AddScoped<IValidator<CreateUserCommand>, CreateUserCommandValidator>();
             services.AddScoped<IValidator<GetUserByIdQuery>, GetUserByIdQueryValidator>();
+            services.AddScoped<IValidator<GetUserByEmailQuery>, GetUserByEmailQueryValidator>();
             services.AddScoped<IValidator<CreateTrainCommand>, CreateTrainCommandValidator>();
             services.AddScoped<IValidator<EditTrainCommand>, EditTrainCommandValidator>();
             services.AddScoped<IValidator<DeleteTrainCommand>, DeleteTrainCommandValidator>();

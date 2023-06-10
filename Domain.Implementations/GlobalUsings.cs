@@ -22,6 +22,7 @@ global using Domain.Contracts.Trains.Queries.GetById;
 global using Domain.Contracts.Users.Commands;
 global using Domain.Contracts.Users.Commands.CreateUser;
 global using Domain.Contracts.Users.Queries;
+global using Domain.Contracts.Users.Queries.GetByEmail;
 global using Domain.Contracts.Users.Queries.GetById;
 global using Domain.Implementations.Tickets.Behaviour.Mappings;
 global using Domain.Implementations.Tickets.Behaviour.Models;

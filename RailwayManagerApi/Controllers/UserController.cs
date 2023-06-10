@@ -18,6 +18,13 @@
             return Ok(await queries.GetUserAsync(new GetUserByIdQuery(userId)));
         }
 
+        [HttpGet("{userEmail}")]
+        public async Task<IActionResult> GetByEmail([FromRoute] string userEmail)
+        {
+            return Ok(await queries.GetUserAsync(new GetUserByEmailQuery(userEmail)));
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserDto user)
         {

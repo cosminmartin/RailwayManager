@@ -15,5 +15,17 @@
 
             return await connection.QueryFirstOrDefaultAsync<User>(query, parameters);
         }
+
+        public async Task<User> GetUserAsync(GetUserByEmailContract contract)
+        {
+            var connection = context.CreateConnection();
+			await connection.OpenAsync();
+
+			const string query = $@"SELECT * FROM Users WHERE Users.Email = @UserEmail";
+
+            var parameters = new { UserEmail = contract.Email };
+
+            return await connection.QueryFirstOrDefaultAsync<User>(query, parameters);
+		}
     }
 }
