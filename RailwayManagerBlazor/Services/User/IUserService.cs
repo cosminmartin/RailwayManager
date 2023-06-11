@@ -2,6 +2,7 @@
 {
 	public interface IUserService 
 	{
-		Task<UserModel> GetUser(Guid UserId);
+		Task<LoginModel> AuthenticateUser(string email, string password);
+		//Task<LoginModel> AddUser(string email, string password);
 	}
 }

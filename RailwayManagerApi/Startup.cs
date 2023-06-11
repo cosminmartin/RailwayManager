@@ -30,14 +30,17 @@ namespace RailwayManagerApi
             services.RegisterModulesDependencyInjection(Configuration);
 			services.RegisterJWTAuthenticationAndAuthorization(Configuration);
 			services.AddEndpointsApiExplorer();
-			//services.AddSwaggerGen();
 			services.RegisterSwagger(Configuration);
 			services.AddCors(options =>
             {
                 options.AddPolicy(name: "AllowBlazorOrigin",
                         builder =>
                         {
-                            builder.WithOrigins("https://localhost:7000/", "https://localhost:7209/");
+                            //builder.WithOrigins("https://localhost:7000/", "https://localhost:7209/");
+                            builder
+                                       .AllowAnyOrigin()
+                                       .AllowAnyMethod()
+                                       .AllowAnyHeader();
                         }
                     );
             });

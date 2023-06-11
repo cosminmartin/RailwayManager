@@ -1,0 +1,13 @@
+﻿USE RailwayManagerDb
+BEGIN
+
+ALTER TABLE Trains
+ALTER COLUMN Name NVARCHAR(256);
+
+ALTER TABLE Trains
+ALTER COLUMN DepartureStation NVARCHAR(256);
+
+ALTER TABLE Trains
+ALTER COLUMN ArrivalStation NVARCHAR(256);
+
+END

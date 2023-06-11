@@ -16,7 +16,9 @@ else
                 <th>Stația de plecare</th>
                 <th>Stația de sosire</th>
                 <th>Data plecării</th>
+                <th>Ora plecării</th>
                 <th>Data sosirii</th>
+                <th>Ora sosirii</th>
                 <th>Durata</th>
                 <th>Status</th>
             </tr>
@@ -28,9 +30,11 @@ else
                     <td>@train.Name</td>
                     <td>@train.DepartureStation</td>
                     <td>@train.ArrivalStation</td>
-                    <td>@train.DepartureDate.ToShortDateString()</td>
-                    <td>@train.ArrivalDate.ToShortDateString()</td>
-                    <td>@train.Duration.ToShortDateString()</td>
+                    <td>@DateTime.Now.ToShortDateString()</td>
+                    <td>@train.DepartureDate.ToShortTimeString()</td>
+                    <td>@DateTime.Now.ToShortDateString()</td>
+                    <td>@train.ArrivalDate.ToShortTimeString()</td>
+                    <td>@train.Duration.ToString("hh:mm")</td>
                     <td>@train.Status</td>
                 </tr>
             }

@@ -25,7 +25,7 @@
             return Ok(await queries.GetAllTrainsAsync(new GetAllTrainsQuery(departureStation, arrivalStation)));   
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         public async Task<IActionResult> CreateTrain([FromBody] CreateTrainDto train)
         {
             return Ok(await commands.CreateTrainAsync(new CreateTrainCommand(train.Name, train.DepartureStation, train.ArrivalStation, train.DepartureDate, train.ArrivalDate, train.Duration, train.Status)));

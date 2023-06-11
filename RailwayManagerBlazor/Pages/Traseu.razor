@@ -1,0 +1,109 @@
+﻿@page "/traseu"
+@inject HttpClient Http
+
+<PageTitle>Trasee</PageTitle>
+
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card mt-3 mb-3">
+            <div class="card-header">
+                <h2>Adăugare tren</h2>
+            </div>
+            <div class="card-body">
+                @if (isRegistrationSuccess)
+                {
+                    <div class="alert alert-success" role="alert">Traseu adăugat</div>
+                }
+
+                <EditForm Model="@registration" OnValidSubmit="RegisterTrain">
+                  
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Nume traseu:</label>
+                        <div class="col">
+                            <InputText class="form-control" @bind-Value="registration.Name" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Stație plecare:</label>
+                        <div class="col">
+                            <InputText class="form-control" @bind-Value="registration.DepartureStation" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Stație de sosire:</label>
+                        <div class="col">
+                            <InputText class="form-control" @bind-Value="registration.ArrivalStation" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Data plecării:</label>     
+                        <div class="col">
+                            <InputDate Type="InputDateType.DateTimeLocal" class="form-control" @bind-Value="registration.DepartureDate" @bind-Value:format="dd/MM/yyyy hh:mm:ss" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Data sosirii:</label>
+                        <div class="col">
+                            <InputDate Type="InputDateType.DateTimeLocal" class="form-control" @bind-Value="registration.ArrivalDate" @bind-Value:format="dd/MM/yyyy hh:mm:ss" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row" style="display:none;">
+                        <label class="control-label col-md-12">Durata:</label>
+                        <div class="col">
+                            <InputDate Type="InputDateType.DateTimeLocal" class="form-control" @bind-Value="registration.Duration" @bind-Value:format="hh:mm:ss" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Status:</label>
+                        <div class="col">
+                            <InputText class="form-control" @bind-Value="registration.Status" />
+                        </div>
+                    </div>
+                   
+                    <div class="form-group" align="right">
+                        <button type="submit" class="btn btn-success">Adaugă traseu</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Inject]
+    ILogger<TrainRegistration> Logger { get; set; }
+
+    protected TrainRegistration registration = new();
+
+    protected bool isRegistrationSuccess = false;
+
+    protected async Task RegisterTrain()
+    {
+        isRegistrationSuccess = false;
+        try
+        {
+            var response = await Http.PostAsJsonAsync("api/trains/create", registration);
+            
+            if (response.StatusCode == HttpStatusCode.BadRequest)
+            {          
+                throw new HttpRequestException($"Validation failed. Status Code: {response.StatusCode}");
+            }
+            else
+            {
+                isRegistrationSuccess = true;
+                Logger.LogInformation("The registration is successful");
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex.Message);
+        }
+    }
+}
