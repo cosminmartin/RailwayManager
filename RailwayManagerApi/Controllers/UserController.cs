@@ -26,7 +26,7 @@
         }
 
 		[AllowAnonymous]
-		[HttpPost]
+		[HttpPost("create")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserDto user)
         {
             return Ok(await commands.CreateUserAsync(new CreateUserCommand(user.Email, user.FirstName, user.LastName, user.Password, user.PhoneNumber)));

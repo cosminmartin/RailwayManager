@@ -1,0 +1,95 @@
+﻿@page "/cont-nou"
+@inject HttpClient Http
+
+<PageTitle>Cont nou</PageTitle>
+
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card mt-3 mb-3">
+            <div class="card-header">
+                <h2>Creare cont</h2>
+            </div>
+            <div class="card-body">
+                @if (isRegistrationSuccess)
+                {
+                    <div class="alert alert-success" role="alert">Cont creat</div>
+                }
+
+                <EditForm Model="@registration" OnValidSubmit="RegisterUser">
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Email:</label>
+                        <div class="col">
+                            <InputText class="form-control" @bind-Value="registration.Email" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Prenume:</label>
+                        <div class="col">
+                            <InputText class="form-control" @bind-Value="registration.FirstName" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Nume:</label>
+                        <div class="col">
+                            <InputText class="form-control" @bind-Value="registration.LastName" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Parolă:</label>
+                        <div class="col">
+                            <InputText class="form-control" @bind-Value="registration.Password" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Telefon:</label>
+                        <div class="col">
+                            <InputText class="form-control" @bind-Value="registration.PhoneNumber" />
+                        </div>
+                    </div>
+                
+                    <div class="form-group" align="right">
+                        <button type="submit" class="btn btn-success">Crează cont</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Inject]
+    ILogger<UserRegistration> Logger { get; set; }
+
+    protected UserRegistration registration = new();
+
+    protected bool isRegistrationSuccess = false;
+
+    protected async Task RegisterUser()
+    {
+        isRegistrationSuccess = false;
+        try
+        {
+            var response = await Http.PostAsJsonAsync("api/users/create", registration);
+
+            if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                throw new HttpRequestException($"Validation failed. Status Code: {response.StatusCode}");
+            }
+            else
+            {
+                isRegistrationSuccess = true;
+                Logger.LogInformation("The registration is successful");
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex.Message);
+        }
+    }
+}

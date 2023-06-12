@@ -1,4 +1,4 @@
-﻿@page "/bilet/{TrainId}"
+﻿@page "/bilet/{TrainId}/{Status}"
 @inject HttpClient Http
 
 <PageTitle>Bilet</PageTitle>
@@ -13,7 +13,7 @@
             <div class="card-body">
                 @if (isRegistrationSuccess)
                 {
-                    <div class="alert alert-success" role="alert">Bilet creat</div>
+                    <div class="alert alert-success" role="alert">Bilet cumpărat</div>
                 }
 
                 <EditForm Model="@registration" OnValidSubmit="RegisterTicket">
@@ -46,10 +46,10 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" style="display:none">
                         <label class="control-label col-md-12">Preț:</label>
                         <div class="col">
-                            <InputText class="form-control" @bind-Value="registration.Price" />
+                            <InputText class="form-control" @bind-Value="@Status" />
                         </div>
                     </div>
 
@@ -73,6 +73,8 @@
     protected async Task RegisterTicket()
     {
         registration.TrainId = TrainId;
+        registration.Price = Status;
+
         isRegistrationSuccess = false;
         try
         {
@@ -97,4 +99,7 @@
 
     [Parameter]
     public string TrainId { get; set; }
+
+    [Parameter]
+    public string Status { get; set; }
 }
