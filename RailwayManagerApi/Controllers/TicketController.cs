@@ -1,7 +1,7 @@
 ﻿namespace RailwayManagerApi.Controllers
 {
     [ApiController]
-    [Route("tickets")]
+    [Route("api/tickets")]
     public class TicketController : ControllerBase
     {
         private readonly ITicketQueries queries;
@@ -19,7 +19,7 @@
             return Ok(await queries.GetTicketAsync(new GetTicketByIdQuery(ticketId)));
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         public async Task<IActionResult> CreateTicket([FromBody] CreateTicketDto ticket)
         {
             return Ok(await commands.CreateTicketAsync(new CreateTicketCommand(ticket.TrainId, ticket.UserId, ticket.RailroadCar, ticket.TrainSeat, ticket.Price)));

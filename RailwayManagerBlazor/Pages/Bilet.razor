@@ -1,0 +1,100 @@
+﻿@page "/bilet/{TrainId}"
+@inject HttpClient Http
+
+<PageTitle>Bilet</PageTitle>
+
+
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card mt-3 mb-3">
+            <div class="card-header">
+                <h2>Bilet</h2>
+            </div>
+            <div class="card-body">
+                @if (isRegistrationSuccess)
+                {
+                    <div class="alert alert-success" role="alert">Bilet creat</div>
+                }
+
+                <EditForm Model="@registration" OnValidSubmit="RegisterTicket">
+
+                    <div class="form-group row" style="display:none">>
+                        <label class="control-label col-md-12">Train Id:</label>
+                        <div class="col">
+                            <InputText class="form-control" @bind-Value="@TrainId" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">User id:</label>
+                        <div class="col">
+                                     <InputText class="form-control" @bind-Value="registration.UserId" />       
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Vagon:</label>
+                        <div class="col">
+                            <InputText class="form-control" @bind-Value="registration.RailroadCar" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Loc:</label>
+                        <div class="col">
+                            <InputText class="form-control" @bind-Value="registration.TrainSeat" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Preț:</label>
+                        <div class="col">
+                            <InputText class="form-control" @bind-Value="registration.Price" />
+                        </div>
+                    </div>
+
+                    <div class="form-group" align="right">
+                        <button type="submit" class="btn btn-success">Cumpără bilet</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Inject]
+    ILogger<TicketRegistration> Logger { get; set; }
+
+    protected TicketRegistration registration = new();
+
+    protected bool isRegistrationSuccess = false;
+
+    protected async Task RegisterTicket()
+    {
+        registration.TrainId = TrainId;
+        isRegistrationSuccess = false;
+        try
+        {
+            var response = await Http.PostAsJsonAsync("api/tickets/create", registration);
+
+            if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                throw new HttpRequestException($"Validation failed. Status Code: {response.StatusCode}");
+            }
+            else
+            {
+                isRegistrationSuccess = true;
+                Logger.LogInformation("The registration is successful");
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex.Message);
+        }
+    }
+
+    [Parameter]
+    public string TrainId { get; set; }
+}

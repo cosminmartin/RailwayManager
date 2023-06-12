@@ -1,5 +1,6 @@
 ﻿@page "/trafic"
 @inject HttpClient Http
+@inject NavigationManager NavigationManager
 
 <h3>Trafic intern</h3>
 
@@ -12,6 +13,7 @@ else
     <table class="table">
         <thead>
             <tr>
+                <th style="display:none">>Id</th>
                 <th>Traseu</th>
                 <th>Stația de plecare</th>
                 <th>Stația de sosire</th>
@@ -21,12 +23,14 @@ else
                 <th>Ora sosirii</th>
                 <th>Durata</th>
                 <th>Status</th>
+                <th>Bilet</th>
             </tr>
         </thead>
         <tbody>
             @foreach(var train in Trains)
             {
                 <tr>
+                    <td style="display:none">>@train.Id</td>
                     <td>@train.Name</td>
                     <td>@train.DepartureStation</td>
                     <td>@train.ArrivalStation</td>
@@ -36,6 +40,14 @@ else
                     <td>@train.ArrivalDate.ToShortTimeString()</td>
                     <td>@train.Duration.ToString("hh:mm")</td>
                     <td>@train.Status</td>
+                    <td>
+                        <button @onclick="() => ButtonHandler(train.Id)">
+                            Cumpără
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-ticket-detailed-fill" viewBox="0 0 16 16">
+                                <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5Zm4 1a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5Zm0 5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5ZM4 8a1 1 0 0 0 1 1h6a1 1 0 1 0 0-2H5a1 1 0 0 0-1 1Z" />
+                            </svg>
+                        </button>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -48,5 +60,11 @@ else
     protected override async Task OnInitializedAsync()
     {
         Trains = await Http.GetFromJsonAsync<List<TrainModel>>("api/trains/all/all");
+    }
+
+    private void ButtonHandler(Guid TrainId)
+    {
+        NavigationManager
+             .NavigateTo($"/bilet/{TrainId}");
     }
 }
